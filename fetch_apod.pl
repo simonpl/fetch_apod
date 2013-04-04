@@ -1,6 +1,6 @@
 #!/usr/bin/env perl
 
-    #   Elektrol-gif-maker generates GIF-images produced by the russian satellite Elektro-l
+    #   fetch_apod fetches the Astromy Picure of the day
     #   Copyright (C) 2013 Simon Plasger
     #   This program is free software: you can redistribute it and/or modify
     #   it under the terms of the GNU General Public License as published by
