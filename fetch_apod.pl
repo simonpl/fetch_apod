@@ -33,7 +33,7 @@ my @linkseparator = split("\"", $useful);
 if($linkseparator[0] ne "<a href=")
 {
     print "Wrong content";
-    exit 1;
+    exit 2;
 }
 my $url = "http://apod.nasa.gov/".$linkseparator[1];
 my @imagename = split("/", $linkseparator[1]);
@@ -42,6 +42,6 @@ my $copy = getstore($url, $imagename);
 if(!$copy)
 {
     print "Couldn't fetch image";
-    exit 1;
+    exit 3;
 }
 exit 0;
