@@ -18,6 +18,10 @@
     #   See README for informations use this program.
     
 use LWP::Simple;
+use constant APOD_SUCCESS => 0;
+use constant APOD_SITEFETCH_ERROR => 1;
+use constant APOD_CONTENT_ERROR => 2;
+use constant APOD_IMAGEFETCH_ERROR => 3;
 my $path = "./"; # Path to save the image
 my $source = "http://apod.nasa.gov/apod/astropix.html"; # URL of the APOD-Site
 $\ = "\n";
@@ -25,7 +29,7 @@ my $apodsite = get($source);
 if(!defined($apodsite))
 {
     print "Couldn't fetch the APOD site";
-    exit 1;
+    exit APOD_SITEFETCH_ERROR;
 }
 my @useful = split("<br>\n", $apodsite);
 my $useful = $useful[1];
@@ -33,7 +37,7 @@ my @linkseparator = split("\"", $useful);
 if($linkseparator[0] ne "<a href=")
 {
     print "Wrong content";
-    exit 2;
+    exit APOD_CONTENT_ERROR;
 }
 my $url = "http://apod.nasa.gov/".$linkseparator[1];
 my @imagename = split("/", $linkseparator[1]);
@@ -42,6 +46,6 @@ my $copy = getstore($url, $imagename);
 if(!$copy)
 {
     print "Couldn't fetch image";
-    exit 3;
+    exit APOD_IMAGEFETCH_ERROR;
 }
-exit 0;
+exit APOD_SUCCESS;
