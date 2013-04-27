@@ -4,7 +4,9 @@ Fetch APOD
 Usage
 -----
 
-`./fetch_apod.pl`
+`./fetch_apod.pl [URL]`
+
+Use URL to define an alternate site to load the image. Default is http://apod.nasa.gov/apod/astropix.html (Image of today).
 
 Fetches the APOD (Astronomy Picture of the day) to the folder defined via `$path` in the file.
 

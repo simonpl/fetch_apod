@@ -16,16 +16,25 @@
     #   See COPYING for details.
     #
     #   See README for informations use this program.
-    
+
+use warnings;    
 use LWP::Simple;
 # Constans for errors
 use constant APOD_SUCCESS => 0;
 use constant APOD_SITEFETCH_ERROR => 1;
 use constant APOD_CONTENT_ERROR => 2;
 use constant APOD_IMAGEFETCH_ERROR => 3;
-my $path = "./"; # Path to save the image
-my $source = "http://apod.nasa.gov/apod/astropix.html"; # URL of the APOD-Site
 $\ = "\n";
+my $path = "./"; # Path to save the image
+my $source;
+if(1 == scalar(@ARGV)) # 1 Argument given?
+{
+    $source = shift(@ARGV);
+}
+else
+{
+    $source = "http://apod.nasa.gov/apod/astropix.html"; # URL of the APOD-Site
+}
 my $apodsite = get($source); # Load website
 if(!defined($apodsite)) # Fetch error?
 {
