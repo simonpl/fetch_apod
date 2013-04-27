@@ -16,8 +16,7 @@
     #   See COPYING for details.
     #
     #   See README for informations use this program.
-
-use warnings;    
+ 
 use LWP::Simple;
 # Constans for errors
 use constant APOD_SUCCESS => 0;
