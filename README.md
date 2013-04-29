@@ -27,6 +27,7 @@ License
 -------
 
 Fetch APOD fetches Astronomy Pictures of the day.
+
 Copyright (C) 2013 Simon Plasger
 
 This program is free software: you can redistribute it and/or modify
