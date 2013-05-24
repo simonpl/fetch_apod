@@ -40,10 +40,10 @@ if(!defined($apodsite)) # Fetch error?
     print "Couldn't fetch the APOD site";
     exit APOD_SITEFETCH_ERROR;
 }
-my @useful = split("<br>\n", $apodsite);
-my $useful = $useful[1];
+my @useful = split("<br>\n", $apodsite); # Parsing out the useful content
+my $useful = $useful[1]; 
 my @linkseparator = split("\"", $useful);
-if($linkseparator[0] ne "<a href=")
+if($linkseparator[0] ne "<a href=") # If this error appears, the layout of apod.nasa.gov possibly changed
 {
     print "Wrong content";
     exit APOD_CONTENT_ERROR;
@@ -51,7 +51,7 @@ if($linkseparator[0] ne "<a href=")
 my $url = "http://apod.nasa.gov/".$linkseparator[1];
 my @imagename = split("/", $linkseparator[1]);
 my $imagename = $path.$imagename[2];
-my $copy = getstore($url, $imagename);
+my $copy = getstore($url, $imagename); # The download
 if(!$copy)
 {
     print "Couldn't fetch image";
