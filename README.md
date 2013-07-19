@@ -15,7 +15,7 @@ Usage
 
 Use URL to define an alternate site to load the image. Default is http://apod.nasa.gov/apod/astropix.html (Image of today).
 
-Fetches the APOD (Astronomy Picture of the day) to the folder defined via `$path` in the file.
+Fetches the APOD (Astronomy Picture of the day) to the folder defined via `$safepath` in the configuration.
 
 Requires the LWP-lib (Library for WWW in Perl).
 
