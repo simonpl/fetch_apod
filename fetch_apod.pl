@@ -15,16 +15,16 @@
     #
     #   See COPYING for details.
     #
-    #   See README for informations use this program.
+    #   See README for informations about how to use this program.
  
 use LWP::Simple;
+use fetch_apod_configuration;
 # Constans for errors
 use constant APOD_SUCCESS => 0;
 use constant APOD_SITEFETCH_ERROR => 1;
 use constant APOD_CONTENT_ERROR => 2;
 use constant APOD_IMAGEFETCH_ERROR => 3;
 $\ = "\n";
-my $path = "./"; # Path to save the image
 my $source;
 if(1 == scalar(@ARGV)) # 1 Argument given?
 {
@@ -32,7 +32,7 @@ if(1 == scalar(@ARGV)) # 1 Argument given?
 }
 else
 {
-    $source = "http://apod.nasa.gov/apod/astropix.html"; # URL of the APOD-Site
+    $source = $fetch_apod_configuration::defaultsource;
 }
 my $apodsite = get($source); # Load website
 if(!defined($apodsite)) # Fetch error?
@@ -50,7 +50,7 @@ if($linkseparator[0] ne "<a href=") # If this error appears, the layout of apod.
 }
 my $url = "http://apod.nasa.gov/".$linkseparator[1];
 my @imagename = split("/", $linkseparator[1]);
-my $imagename = $path.$imagename[2];
+my $imagename = $fetch_apod_configuration::safepath.$imagename[2];
 my $copy = getstore($url, $imagename); # The download
 if(!$copy)
 {

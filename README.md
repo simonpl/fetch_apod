@@ -1,6 +1,13 @@
 Fetch APOD
 ==========
 
+Setup
+-----
+
+1. Copy `fetch_apod_configuration.pm.dist` to `fetch_apod_configuration.pm`.
+
+2. Mark `fetch_apod.pl` as executable (`chmod +x fetch_apod.pl`).
+
 Usage
 -----
 

@@ -1,0 +1,3 @@
+package fetch_apod_configuration;
+$safepath = "./"; # Path to save the image
+$defaultsource = "http://apod.nasa.gov/apod/astropix.html"; # URL of the APOD-Site
