@@ -43,7 +43,7 @@ if(!defined($apodsite)) # Fetch error?
 my @useful = split("<br>\n", $apodsite); # Parsing out the useful content
 my $useful = $useful[1]; 
 my @linkseparator = split("\"", $useful);
-if($linkseparator[0] ne "<a href=") # If this error appears, the layout of apod.nasa.gov possibly changed
+if($linkseparator[0] ne "\n<a href=") # If this error appears, the layout of apod.nasa.gov possibly changed
 {
     print "Wrong content";
     exit APOD_CONTENT_ERROR;
